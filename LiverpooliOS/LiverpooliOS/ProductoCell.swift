@@ -19,6 +19,20 @@ class ProductoCell: UITableViewCell{
     
     @IBOutlet weak var precio: UILabel!
     
+    func setPublicacion(producto: Producto){
+        
+        nombre.text = producto.nombre
+        
+        descripcion.text = producto.descripcion
+        
+        precio.text = producto.precio
+        
+        imagen.image = producto.imagen
+        
+        
+        
+        
+    }
     /*
     func setPublicacion(publicacion: Publicacion){
         
