@@ -15,6 +15,8 @@
 		DC9B5F1A24D33607003A84D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9B5F1824D33607003A84D8 /* LaunchScreen.storyboard */; };
 		DC9B5F2524D33608003A84D8 /* LiverpooliOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B5F2424D33608003A84D8 /* LiverpooliOSTests.swift */; };
 		DC9B5F3024D33608003A84D8 /* LiverpooliOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B5F2F24D33608003A84D8 /* LiverpooliOSUITests.swift */; };
+		DCA1A28B24D3470600DA1FA6 /* ProductoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA1A28A24D3470600DA1FA6 /* ProductoCell.swift */; };
+		DCA1A28D24D347D800DA1FA6 /* Producto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA1A28C24D347D800DA1FA6 /* Producto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		DC9B5F2B24D33608003A84D8 /* LiverpooliOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiverpooliOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9B5F2F24D33608003A84D8 /* LiverpooliOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiverpooliOSUITests.swift; sourceTree = "<group>"; };
 		DC9B5F3124D33608003A84D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCA1A28A24D3470600DA1FA6 /* ProductoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoCell.swift; sourceTree = "<group>"; };
+		DCA1A28C24D347D800DA1FA6 /* Producto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				DC9B5F1624D33607003A84D8 /* Assets.xcassets */,
 				DC9B5F1824D33607003A84D8 /* LaunchScreen.storyboard */,
 				DC9B5F1B24D33607003A84D8 /* Info.plist */,
+				DCA1A28A24D3470600DA1FA6 /* ProductoCell.swift */,
+				DCA1A28C24D347D800DA1FA6 /* Producto.swift */,
 			);
 			path = LiverpooliOS;
 			sourceTree = "<group>";
@@ -260,6 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC9B5F1224D335FF003A84D8 /* ViewController.swift in Sources */,
+				DCA1A28B24D3470600DA1FA6 /* ProductoCell.swift in Sources */,
+				DCA1A28D24D347D800DA1FA6 /* Producto.swift in Sources */,
 				DC9B5F0E24D335FF003A84D8 /* AppDelegate.swift in Sources */,
 				DC9B5F1024D335FF003A84D8 /* SceneDelegate.swift in Sources */,
 			);
