@@ -15,6 +15,8 @@
 		DC96F95F24D31D4B00040D2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC96F95D24D31D4B00040D2E /* LaunchScreen.storyboard */; };
 		DC96F96A24D31D4C00040D2E /* iOSLiverpoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC96F96924D31D4C00040D2E /* iOSLiverpoolTests.swift */; };
 		DC96F97524D31D4C00040D2E /* iOSLiverpoolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC96F97424D31D4C00040D2E /* iOSLiverpoolUITests.swift */; };
+		DC96F98624D322F900040D2E /* liverpool.png in Resources */ = {isa = PBXBuildFile; fileRef = DC96F98524D322F800040D2E /* liverpool.png */; };
+		DC96F98A24D3242A00040D2E /* Liverpool_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC96F98924D3242A00040D2E /* Liverpool_logo.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		DC96F97024D31D4C00040D2E /* iOSLiverpoolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSLiverpoolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC96F97424D31D4C00040D2E /* iOSLiverpoolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSLiverpoolUITests.swift; sourceTree = "<group>"; };
 		DC96F97624D31D4C00040D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC96F98524D322F800040D2E /* liverpool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = liverpool.png; path = ../../../../../Downloads/liverpool.png; sourceTree = "<group>"; };
+		DC96F98924D3242A00040D2E /* Liverpool_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Liverpool_logo.jpg; path = ../../../../../Downloads/Liverpool_logo.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		DC96F95124D31D4300040D2E /* iOSLiverpool */ = {
 			isa = PBXGroup;
 			children = (
+				DC96F98224D321B400040D2E /* Images */,
 				DC96F95224D31D4300040D2E /* AppDelegate.swift */,
 				DC96F95424D31D4300040D2E /* SceneDelegate.swift */,
 				DC96F95624D31D4300040D2E /* ContentView.swift */,
@@ -134,6 +139,15 @@
 				DC96F97624D31D4C00040D2E /* Info.plist */,
 			);
 			path = iOSLiverpoolUITests;
+			sourceTree = "<group>";
+		};
+		DC96F98224D321B400040D2E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DC96F98924D3242A00040D2E /* Liverpool_logo.jpg */,
+				DC96F98524D322F800040D2E /* liverpool.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +257,8 @@
 				DC96F95F24D31D4B00040D2E /* LaunchScreen.storyboard in Resources */,
 				DC96F95C24D31D4B00040D2E /* Preview Assets.xcassets in Resources */,
 				DC96F95924D31D4B00040D2E /* Assets.xcassets in Resources */,
+				DC96F98624D322F900040D2E /* liverpool.png in Resources */,
+				DC96F98A24D3242A00040D2E /* Liverpool_logo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
