@@ -9,6 +9,33 @@
 import UIKit
 class ProductoCell: UITableViewCell{
     
+    
+    @IBOutlet weak var imagen: UIImageView!
+    
+    
+    @IBOutlet weak var nombre: UILabel!
+    
+    @IBOutlet weak var descripcion: UILabel!
+    
+    @IBOutlet weak var precio: UILabel!
+    
+    /*
+    func setPublicacion(publicacion: Publicacion){
+        
+        blogTitleLabel.text = publicacion.title
+        
+        blogLikesLabel.text = publicacion.likes
+        
+        blogFechaLabel.text = publicacion.fecha
+        
+        blogImageView.image = publicacion.image
+        
+        
+        
+        
+    }
+    */
+    
     //@IBOutlet weak var blogTitleLabel: UILabel!
     
     //@IBOutlet weak var blogLikesLabel: UILabel!
