@@ -19,7 +19,7 @@ class ProductoCell: UITableViewCell{
     
     @IBOutlet weak var precio: UILabel!
     
-    func setPublicacion(producto: Producto){
+    func setProducto(producto: Producto){
         
         nombre.text = producto.nombre
         
