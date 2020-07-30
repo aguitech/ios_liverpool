@@ -12,7 +12,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Resultados: Codable {
+struct LiverpoolObject : Codable {
 	let status : Status?
 	let pageType : String?
 	let plpResults : PlpResults?
