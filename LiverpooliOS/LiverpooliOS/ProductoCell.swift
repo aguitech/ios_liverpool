@@ -10,7 +10,7 @@ import UIKit
 class ProductoCell: UITableViewCell{
     
     
-    @IBOutlet weak var imagen: UIImageView!
+    //@IBOutlet weak var imagen: UIImageView!
     
     
     @IBOutlet weak var nombre: UILabel!
@@ -27,7 +27,7 @@ class ProductoCell: UITableViewCell{
         
         precio.text = producto.precio
         
-        imagen.image = producto.imagen
+        //imagen.image = producto.imagen
         
         
         

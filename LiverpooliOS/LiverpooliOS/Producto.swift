@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 
 class Producto{
-    var imagen: UIImage
+    //var imagen: UIImage
     var nombre: String
     var descripcion: String
     var precio: String
     
-    init(imagen: UIImage, nombre: String, descripcion: String, precio: String){
-        self.imagen = imagen
+    init(nombre: String, descripcion: String, precio: String){
+    
+    //init(imagen: UIImage, nombre: String, descripcion: String, precio: String){
+        //self.imagen = imagen
         self.nombre = nombre
         self.descripcion = descripcion
         self.precio = precio

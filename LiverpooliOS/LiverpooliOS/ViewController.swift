@@ -113,9 +113,41 @@ class ViewController: UIViewController {
         
         print("Hello")
         
+        var tempProds: [Producto] = []
+        
         for item in (object.plpResults?.records)!{
             print("Uno")
             print(item)
+            
+            print(item.productId!)
+            
+            
+            self.misproductos.append(item.productId! as! String)
+            
+            self.idsproductos.append(item.productId! as! String)
+                //let pex = Mascota(image: UIImage(imageLiteralResourceName: "icono_perro"), title: "Tom"
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            //var pex = Producto(imagen: UIImage(imageLiteralResourceName: "Liverpool_logo"), nombre: item.productDisplayName! as! String, descripcion: item.productId! as! String, precio: item.listPrice! as! String )
+            let pex = Producto(nombre: item.productDisplayName! as! String, descripcion: item.productId! as! String, precio: item.productDisplayName! as! String )
+                
+                tempProds.append(pex)
+        }
+        
+        self.productos = tempProds
+        DispatchQueue.main.async { // Correct
+               self.listadoProductos.reloadData()
         }
         
         
