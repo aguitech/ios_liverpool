@@ -122,9 +122,9 @@ class ViewController: UIViewController {
             print(item.productId!)
             
             
-            self.misproductos.append(item.productId! as! String)
+            self.misproductos.append(item.productDisplayName! as! String)
             
-            self.idsproductos.append(item.productId! as! String)
+            self.idsproductos.append(item.productDisplayName! as! String)
                 //let pex = Mascota(image: UIImage(imageLiteralResourceName: "icono_perro"), title: "Tom"
             
             
@@ -140,9 +140,9 @@ class ViewController: UIViewController {
             
             
             //var pex = Producto(imagen: UIImage(imageLiteralResourceName: "Liverpool_logo"), nombre: item.productDisplayName! as! String, descripcion: item.productId! as! String, precio: item.listPrice! as! String )
-            let pex = Producto(nombre: item.productDisplayName! as! String, descripcion: item.productId! as! String, precio: item.productDisplayName! as! String )
+            let prodAppend = Producto(nombre: item.productDisplayName! as! String, descripcion: item.productId! as! String, precio: item.productDisplayName! as! String )
                 
-                tempProds.append(pex)
+                tempProds.append(prodAppend)
         }
         
         self.productos = tempProds
@@ -166,6 +166,32 @@ class ViewController: UIViewController {
     session.finishTasksAndInvalidate()
   }
 }
+
+
+func numberOfSections(in tableView: UITableView) -> Int {
+  
+  
+  //return 2
+  //return daysOfTheWeek.count
+  
+  //return daysOfTheWeek.count
+  //return 13
+  return 1
+}
+
+func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+  return 100
+}
+
+
+
+
+
+
+
+
+
+
 
 protocol URLQueryParameterStringConvertible {
   var queryParameters: String {get}
