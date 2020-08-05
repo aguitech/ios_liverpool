@@ -8,56 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet weak var tableView: UITableView!
-
-
   @IBOutlet weak var txtBuscar: UITextField!
 
-  var contactSelected = 0;
-  var text: String = "";
-  var idUsuario: String = "";
+  var contactSelected = 0
+  var text: String = ""
+  var idUsuario: String = ""
+  var productos: [Records] = [Records]()
 
-  var resultados:NSDictionary = NSDictionary();
-  var misproductos: [String] = []
-  var idsproductos: [String] = []
-
-  //var productos: [Producto] = []
-
-    var productos: [Producto] = [Producto]()
-
-    
   @IBAction func buscar(_ sender: UIButton) {
 
-    let url = URL(string: "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=playera&page-number=1&number-of-items-per-page=20")
-    var request : URLRequest = URLRequest(url: url!)
-    request.httpMethod = "GET"
-
-    let dataTask = URLSession.shared.dataTask(with: request) {
-      data,response,error in
-      print("anything")
-      do {
-        if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
-          //DESCOMENTAR
-          self.resultados = jsonResult
-          print(jsonResult)
-          //Use GCD to invoke the completion handler on the main thread
-
-          DispatchQueue.main.async() {
-            print("probando")
-
-          }
-
-        }
-      } catch let error as NSError {
-        print(error.localizedDescription)
-      }
-    }
-    dataTask.resume()
   }
-
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -100,67 +63,13 @@ class ViewController: UIViewController {
         error == nil else {
           print(error?.localizedDescription ?? "Response Error")
           return }
-
-        print(dataResponse)
-        
-        
-        
-      let decoder = JSONDecoder()
       do{
-        let object = try JSONDecoder().decode(LiverpoolObject.self, from: data!)
-        print(object.plpResults?.plpState?.lastRecNum)
+        let object = try JSONDecoder().decode(LiverpoolObject.self, from: dataResponse)
+        self.productos = object.plpResults?.records ?? []
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+        }
 
-        //print(object)
-        
-        //print(object.plpResults?.records)
-        
-        print("Hello")
-        
-        var tempProds: [Producto] = []
-        
-        for item in (object.plpResults?.records)!{
-            print("Uno")
-            print(item)
-            
-            print(item.productId!)
-            
-            
-            self.misproductos.append(item.productDisplayName! as! String)
-            
-            self.idsproductos.append(item.productDisplayName! as! String)
-                //let pex = Mascota(image: UIImage(imageLiteralResourceName: "icono_perro"), title: "Tom"
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            //var pex = Producto(imagen: UIImage(imageLiteralResourceName: "Liverpool_logo"), nombre: item.productDisplayName! as! String, descripcion: item.productId! as! String, precio: item.listPrice! as! String )
-            let prodAppend = Producto(nombre: item.productDisplayName! as! String, descripcion: item.productId! as! String, precio: item.productDisplayName! as! String )
-                
-                tempProds.append(prodAppend)
-        }
-        
-        self.productos = tempProds
-        DispatchQueue.main.async { // Correct
-               self.tableView.reloadData()
-        }
-        
-        
-        /*
-        for item in (object.plpResults?.records)!{
-            print("Uno")
-            print(item)
-        }
-        */
-        
       } catch let parsingError {
         print("Error", parsingError)
       }
@@ -168,74 +77,26 @@ class ViewController: UIViewController {
     task.resume()
     session.finishTasksAndInvalidate()
   }
-}
 
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
 
-func numberOfSections(in tableView: UITableView) -> Int {
-  
-  
-  //return 2
-  //return daysOfTheWeek.count
-  
-  //return daysOfTheWeek.count
-  //return 13
-  return 1
-}
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 100
+  }
 
-func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-  return 100
-}
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-  //Numero de filas
-  //return 5;
-  //return 5;
-  //return daysOfTheWeek.count;
-  //return daysOfTheWeek[section].count;
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return productos.count
-}
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-  //let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-  //let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-  //let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-  let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductoCell
-  //let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! PetCell
-  
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ProductoCell
     let mascotarrr = productos[indexPath.row]
-  
-  //let dayOfTheWeek = daysOfTheWeek[1]
-  //para uno ESTO ES PARA UNO
-  //let dayOfTheWeek = daysOfTheWeek[indexPath.row]
-  //para multiples secciones
-  
-  //ESTO ES PARA LA SECCIONES
-  //let dayOfTheWeek = daysOfTheWeek[indexPath.section][indexPath.row]
-  
-  /*
-   //cell.textLabel?.text = "HEllow" + dayOfTheWeek;
-   cell.textLabel?.text = "HEllow \(dayOfTheWeek)" + dayOfTheWeek;
-   //cell.textLabel2?.text = "HEllo2"
-   cell.detailTextLabel?.text = "HElslow" + dayOfTheWeek;
-   */
-  //cell.textLabel?.text = "HEllow" + dayOfTheWeek;
-  
-  
-  //cell.textLabel?.text = "HEllow \(dayOfTheWeek)" + dayOfTheWeek;
-  //cell.detailTextLabel?.text = "HElslow" + dayOfTheWeek;
-  ////cell.textLabel?.text = "HEllow \(dayOfTheWeek)" + dayOfTheWeek;
-  //cell.detailTextLabel?.text = "HElslow" + dayOfTheWeek;
-  cell.setProducto(producto: mascotarrr)
-  return cell
+    cell.setProducto(producto: mascotarrr)
+    return cell
+  }
 }
-
-
-
-
-
-
-
-
-
-
 
 protocol URLQueryParameterStringConvertible {
   var queryParameters: String {get}
