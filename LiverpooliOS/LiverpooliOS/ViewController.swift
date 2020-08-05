@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
 
-  @IBOutlet weak var listadoProductos: UITableView!
+  @IBOutlet weak var tableView: UITableView!
 
 
   @IBOutlet weak var txtBuscar: UITextField!
@@ -147,7 +147,7 @@ class ViewController: UIViewController {
         
         self.productos = tempProds
         DispatchQueue.main.async { // Correct
-               self.listadoProductos.reloadData()
+               self.tableView.reloadData()
         }
         
         
@@ -181,6 +181,47 @@ func numberOfSections(in tableView: UITableView) -> Int {
 
 func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
   return 100
+}
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  //Numero de filas
+  //return 5;
+  //return 5;
+  //return daysOfTheWeek.count;
+  //return daysOfTheWeek[section].count;
+  return productos.count
+}
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  //let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+  //let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+  //let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+  let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductoCell
+  //let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! PetCell
+  
+    let mascotarrr = productos[indexPath.row]
+  
+  //let dayOfTheWeek = daysOfTheWeek[1]
+  //para uno ESTO ES PARA UNO
+  //let dayOfTheWeek = daysOfTheWeek[indexPath.row]
+  //para multiples secciones
+  
+  //ESTO ES PARA LA SECCIONES
+  //let dayOfTheWeek = daysOfTheWeek[indexPath.section][indexPath.row]
+  
+  /*
+   //cell.textLabel?.text = "HEllow" + dayOfTheWeek;
+   cell.textLabel?.text = "HEllow \(dayOfTheWeek)" + dayOfTheWeek;
+   //cell.textLabel2?.text = "HEllo2"
+   cell.detailTextLabel?.text = "HElslow" + dayOfTheWeek;
+   */
+  //cell.textLabel?.text = "HEllow" + dayOfTheWeek;
+  
+  
+  //cell.textLabel?.text = "HEllow \(dayOfTheWeek)" + dayOfTheWeek;
+  //cell.detailTextLabel?.text = "HElslow" + dayOfTheWeek;
+  ////cell.textLabel?.text = "HEllow \(dayOfTheWeek)" + dayOfTheWeek;
+  //cell.detailTextLabel?.text = "HElslow" + dayOfTheWeek;
+  cell.setProducto(producto: mascotarrr)
+  return cell
 }
 
 
