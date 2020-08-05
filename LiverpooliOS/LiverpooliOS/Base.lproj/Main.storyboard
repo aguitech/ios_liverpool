@@ -79,6 +79,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imagen" destination="wrl-2y-o1J" id="7XG-Jp-Gzx"/>
                                             <outlet property="nombre" destination="DrY-rY-QD1" id="nTJ-yf-b6V"/>
                                             <outlet property="precio" destination="Ljx-fV-17j" id="lJf-he-1oX"/>
                                         </connections>

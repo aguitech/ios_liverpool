@@ -94,6 +94,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ProductoCell
     let mascotarrr = productos[indexPath.row]
     cell.setProducto(producto: mascotarrr)
+    cell.selectionStyle = .none
     return cell
   }
 }

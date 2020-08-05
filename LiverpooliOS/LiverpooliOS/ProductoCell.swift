@@ -10,9 +10,7 @@ import UIKit
 class ProductoCell: UITableViewCell{
 
 
-  //@IBOutlet weak var imagen: UIImageView!
-
-
+  @IBOutlet weak var imagen: UIImageView!
   @IBOutlet weak var nombre: UILabel!
   @IBOutlet weak var precio: UILabel!
 
@@ -24,7 +22,21 @@ class ProductoCell: UITableViewCell{
       precio.text = "$\(price)"
     }
     
-    //imagen.image = producto.imagen
+    imagen.imageFromUrl(urlString: producto.smImage ?? "")
   }
 }
 
+extension UIImageView {
+  public func imageFromUrl(urlString: String) {
+    if let url = URL(string: urlString) {
+      let request = NSURLRequest(url: url)
+      URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
+        if let imageData = data as NSData? {
+          DispatchQueue.main.async {
+            self.image = UIImage(data: imageData as Data)
+          }
+        }
+      }.resume()
+    }
+  }
+}
