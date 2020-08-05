@@ -24,6 +24,19 @@ class Producto{
         self.precio = precio
         
     }
+    func setProducto(producto: Producto){
+        
+        self.nombre = producto.nombre
+        
+        self.descripcion = producto.descripcion
+        
+        self.precio = producto.precio
+        
+        
+        
+        
+        
+    }
     
 }
 

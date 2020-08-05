@@ -24,8 +24,11 @@ class ViewController: UIViewController {
   var misproductos: [String] = []
   var idsproductos: [String] = []
 
-  var productos: [Producto] = []
+  //var productos: [Producto] = []
 
+    var productos: [Producto] = [Producto]()
+
+    
   @IBAction func buscar(_ sender: UIButton) {
 
     let url = URL(string: "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=playera&page-number=1&number-of-items-per-page=20")
@@ -188,7 +191,7 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
   //return 5;
   //return daysOfTheWeek.count;
   //return daysOfTheWeek[section].count;
-  return productos.count
+    return productos.count
 }
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
   //let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
