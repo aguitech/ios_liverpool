@@ -11,25 +11,32 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var txtBuscar: UITextField!
-
+  
+    @IBOutlet weak var txtBuscar: UITextField!
+    
   var contactSelected = 0
   var text: String = ""
   var idUsuario: String = ""
   var productos: [Records] = [Records]()
 
-  @IBAction func buscar(_ sender: UIButton) {
-
-  }
+  
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    sendRequest()
+    //sendRequest()
     // Do any additional setup after loading the view.
   }
 
-  func sendRequest() {
+    @IBAction func buscar(_ sender: UIButton) {
+        
+        print("Buscar...")
+        print(txtBuscar.text!)
+        print("Resultado")
+        
+        sendRequest()
+    }
+    func sendRequest() {
     /* Configure session, choose between:
      * defaultSessionConfiguration
      * ephemeralSessionConfiguration
@@ -49,7 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     guard var URL = URL(string: "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp") else {return}
     let URLParams = [
       "force-plp": "true",
-      "search-string": "playera",
+      "search-string": "\(txtBuscar.text!)",
       "page-number": "1",
       "number-of-items-per-page": "20",
     ]
