@@ -154,7 +154,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Titulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5z-Ty-p9r">
-                                        <rect key="frame" x="39" y="94" width="44" height="21"/>
+                                        <rect key="frame" x="39" y="94" width="319" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -167,6 +167,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uF4-eT-NOW">
+                                        <rect key="frame" x="87" y="251" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -185,6 +189,7 @@
                         <viewLayoutGuide key="safeArea" id="qqE-7P-Q6m"/>
                     </view>
                     <connections>
+                        <outlet property="imagenProducto" destination="uF4-eT-NOW" id="4xJ-Ff-Dcn"/>
                         <outlet property="txtPrecio" destination="HcO-Be-tKt" id="yZb-Xk-fqX"/>
                         <outlet property="txtTitulo" destination="h5z-Ty-p9r" id="QgC-ZK-cSm"/>
                     </connections>

@@ -23,6 +23,9 @@ class ProductoView: UIViewController {
     
     @IBOutlet weak var txtPrecio: UILabel!
     
+    @IBOutlet weak var imagenProducto: UIImageView!
+    
+    
 override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -41,7 +44,7 @@ override func viewDidLoad() {
 
     //imagen.imageFromUrl(urlString: producto.smImage ?? "")
      
-    
+    imagenProducto.imageFromUrl(urlString: producto[0].smImage ?? "")
     
     //guard let name = producto->Records else {return};print("Hello \(name)!")
     
