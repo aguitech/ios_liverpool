@@ -117,7 +117,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         Tips.precio = "90210"
         Tips.titulo = "90210"
         
-        Tips.producto = [productos[0]]
+        var val_prod = contactSelected - 1;
+        
+        Tips.producto = [productos[contactSelected]]
           self.present(Tips, animated: false, completion: nil)
           
           /*

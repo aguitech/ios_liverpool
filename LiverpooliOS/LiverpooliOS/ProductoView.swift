@@ -19,6 +19,10 @@ class ProductoView: UIViewController {
     var idUsuario: String = ""
   var productos: [Records] = [Records]()
 
+    @IBOutlet weak var txtTitulo: UILabel!
+    
+    @IBOutlet weak var txtPrecio: UILabel!
+    
 override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -32,6 +36,11 @@ override func viewDidLoad() {
     print(producto[0].productDisplayName)
     
     print(producto[0].minimumListPrice)
+    
+    txtTitulo.text = producto[0].productDisplayName
+
+    //imagen.imageFromUrl(urlString: producto.smImage ?? "")
+     
     
     
     //guard let name = producto->Records else {return};print("Hello \(name)!")
@@ -59,5 +68,19 @@ override func viewDidLoad() {
   }
 }
 
-
-
+/*
+extension UIImageView {
+  public func imageFromUrl(urlString: String) {
+    if let url = URL(string: urlString) {
+      let request = NSURLRequest(url: url)
+      URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
+        if let imageData = data as NSData? {
+          DispatchQueue.main.async {
+            self.image = UIImage(data: imageData as Data)
+          }
+        }
+      }.resume()
+    }
+  }
+}
+*/
