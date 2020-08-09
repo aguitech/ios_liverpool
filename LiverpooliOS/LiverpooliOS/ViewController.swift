@@ -96,6 +96,54 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return productos.count
   }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        contactSelected = indexPath.row
+      
+      print("Clicked")
+          print(contactSelected)
+          
+          print(productos[contactSelected])
+          
+          print(productos[contactSelected])
+          
+          print("han")
+      
+          
+          
+          let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+          let Tips = storyBoard.instantiateViewController(withIdentifier: "ProductoView") as! ProductoView
+          Tips.idUsuario = idUsuario
+        Tips.precio = "90210"
+        Tips.titulo = "90210"
+        
+        Tips.producto = [productos[0]]
+          self.present(Tips, animated: false, completion: nil)
+          
+          /*
+           let storyBoard: UIStoryboard = UIStoryboard(name: "Forms", bundle: nil)
+           let Tips = storyBoard.instantiateViewController(withIdentifier: "AddPet") as! AddPet
+           Tips.idUsuario = idUsuario
+           self.present(Tips, animated: false, completion: nil)
+           
+           PekitUno[1448:301956] Warning: Attempt to present <PekitUno.AddPet: 0x10fe5e480> on <PekitUno.MyPets: 0x10fe44780> whose view is not in the window hierarchy!
+           
+          */
+          
+        //performSegue(withIdentifier: "DetailPets", sender: nil)
+          
+          //DetailPets
+    }
+      
+          
+      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          // Get the new view controller using segue.destination.
+          // Pass the selected object to the new view controller.
+          if (segue.identifier == "ProductoView") {
+              let ProductoView: ProductoView = segue.destination as! ProductoView
+              //ProductoView.contactIndex = contactSelected
+          }
+      }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ProductoCell
