@@ -24,6 +24,24 @@ override func viewDidLoad() {
     
     print("Detalle")
     print(producto)
+    //print(producto->LiverpooliOS as String)
+    
+    print(producto[0])
+    
+    
+    print(producto[0].productDisplayName)
+    
+    print(producto[0].minimumListPrice)
+    
+    
+    //guard let name = producto->Records else {return};print("Hello \(name)!")
+    
+    
+    
+    
+    //guard let location = person["location"] else {print("I hope the weather is nice near you.")return}print("I hope the weather is nice in \(location).")
+    
+   
     
     
     
