@@ -41,6 +41,12 @@ override func viewDidLoad() {
     print(producto[0].minimumListPrice)
     
     txtTitulo.text = producto[0].productDisplayName
+    
+    
+    
+    if let price = producto[0].listPrice {
+      txtPrecio.text = "$\(price)"
+    }
 
     //imagen.imageFromUrl(urlString: producto.smImage ?? "")
      
