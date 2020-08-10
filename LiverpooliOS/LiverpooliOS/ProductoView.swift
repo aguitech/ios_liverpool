@@ -9,9 +9,6 @@
 import UIKit
 
 class ProductoView: UIViewController {
-
-    var titulo : String = ""
-    var precio : String = ""
     
     var producto: [Records] = [Records]()
     

@@ -160,10 +160,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
           let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
           let Tips = storyBoard.instantiateViewController(withIdentifier: "ProductoView") as! ProductoView
           Tips.idUsuario = idUsuario
-        Tips.precio = "90210"
-        Tips.titulo = "90210"
         
-        var val_prod = contactSelected - 1;
         
         Tips.producto = [productos[contactSelected]]
           self.present(Tips, animated: false, completion: nil)
@@ -195,8 +192,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! ProductoCell
-    let mascotarrr = productos[indexPath.row]
-    cell.setProducto(producto: mascotarrr)
+    let elproducto = productos[indexPath.row]
+    cell.setProducto(producto: elproducto)
     cell.selectionStyle = .none
     return cell
   }
