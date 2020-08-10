@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
     @IBOutlet weak var txtBuscar: UITextField!
     
+    var pagina = 0
   var contactSelected = 0
   var text: String = ""
   var idUsuario: String = ""
@@ -28,6 +29,45 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // Do any additional setup after loading the view.
   }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // This method is called as the user scrolls
+        print("Hola")
+        sendRequest()
+        
+    }
+    /*
+      //MARK: - UIScrollview Delegate -
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 0
+        {
+            if (tableView.contentSize.height - (tableView.contentOffset.y + scrollView.bounds.size.height)) == 0
+            {
+                self.count += 1
+                let strCount = String(self.count)
+                let params:[String:String] = ["search":SAFESTRING(str: self.strSearchVal!),"page":strCount,"length":"25"]
+                let url = API_USER.BASE_URL + API_USER.SEARCH_LISTING
+                self.callGetEventlist(url: url, params: params)
+            }
+            else
+            {
+
+            }
+        }
+    }
+    
+    //MARK: - Use For Pegination -
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        if (NetworkReachabilityManager()?.isReachable)! {
+            if (((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height ) && !isLoadingList){
+                self.isLoadingList = true
+                currentPage += 1
+                self.getList(page: currentPage)
+            }
+        }
+    }
+    */
+    
     @IBAction func buscar(_ sender: UIButton) {
         
         print("Buscar...")
@@ -52,12 +92,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     /* Create the Request:
      Request (GET https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp)
      */
+        
+        pagina = pagina+1;
+        
+        
+        print("Pagina")
+        print(pagina)
 
     guard var URL = URL(string: "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp") else {return}
     let URLParams = [
       "force-plp": "true",
       "search-string": "\(txtBuscar.text!)",
-      "page-number": "1",
+      "page-number": "\(pagina)",
       "number-of-items-per-page": "20",
     ]
     URL = URL.appendingQueryParameters(URLParams)
@@ -72,7 +118,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
           return }
       do{
         let object = try JSONDecoder().decode(LiverpoolObject.self, from: dataResponse)
-        self.productos = object.plpResults?.records ?? []
+        self.productos += object.plpResults?.records ?? []
         DispatchQueue.main.async {
           self.tableView.reloadData()
         }

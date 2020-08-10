@@ -55,7 +55,7 @@ override func viewDidLoad() {
     //guard let name = producto->Records else {return};print("Hello \(name)!")
     
     
-    
+    print(producto[0].brand)
     
     //guard let location = person["location"] else {print("I hope the weather is nice near you.")return}print("I hope the weather is nice in \(location).")
     
